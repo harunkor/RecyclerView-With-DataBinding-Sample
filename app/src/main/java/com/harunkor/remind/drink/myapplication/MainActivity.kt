@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(), OnClickHandlerInterface {
         val adapter = ClothesAdapter(list, onClickHandlerInterface)
         val gridLayoutManager = GridLayoutManager(this, 2)
         activityMainBinding.recyclerView.layoutManager = gridLayoutManager
+        activityMainBinding.recyclerView.addItemDecoration(SpacesItemDecoration(20))
         activityMainBinding.setVariable(BR.adapter, adapter)
 
 
