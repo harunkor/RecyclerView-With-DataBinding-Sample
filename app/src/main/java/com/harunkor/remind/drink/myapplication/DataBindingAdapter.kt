@@ -7,8 +7,7 @@ class DataBindingAdapter {
 
     companion object {
         @JvmStatic @BindingAdapter("imageResource")
-        fun setImageResourse(imageView: ImageView,resource:Int)
-        {
+        fun setImageResourse(imageView: ImageView, resource: Int) {
             imageView.setImageResource(resource)
         }
     }
