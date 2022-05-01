@@ -8,13 +8,13 @@
             name="itemclothes"
             type="com.harunkor.remind.drink.myapplication.ClothesModel" />
 
-        <variable
+<!--        <variable
             name="clickHandler"
-            type="com.harunkor.remind.drink.myapplication.OnClickHandlerInterface" />
+            type="com.harunkor.remind.drink.myapplication.OnClickHandlerInterface" />-->
 
-        <variable
+       <!-- <variable
             name="position"
-            type="Integer" />
+            type="Integer" />-->
 
     </data>
 
@@ -57,7 +57,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:background="@null"
-            android:onClick="@{(v) -> clickHandler.onClick(v,position)}"
             app:layout_constraintEnd_toEndOf="@+id/clothes_image"
             app:layout_constraintTop_toBottomOf="@+id/clothes_image"
             app:srcCompat="@drawable/ic_combined__shape" />

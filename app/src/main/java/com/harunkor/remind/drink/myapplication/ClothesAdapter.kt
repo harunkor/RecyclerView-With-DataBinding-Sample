@@ -9,17 +9,17 @@ import com.harunkor.remind.drink.myapplication.databinding.ItemClothesBinding
 
 class ClothesAdapter(
     val list: List<ClothesModel>,
-    val onClickHandlerInterface: OnClickHandlerInterface
+    val onItemClickHandler: (clothesModel:ClothesModel) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val clothesBinding = DataBindingUtil.inflate<ViewDataBinding>(
             LayoutInflater.from(parent.context), R.layout.item_clothes, parent, false
         )
-        return ClothesViewHolder(clothesBinding, onClickHandlerInterface)
+        return ClothesViewHolder(clothesBinding)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as ClothesViewHolder).onBind(list.get(position), position)
+        (holder as ClothesViewHolder).onBind(list.get(position),onItemClickHandler)
     }
 
     override fun getItemCount(): Int {
@@ -27,15 +27,21 @@ class ClothesAdapter(
     }
 
     class ClothesViewHolder(
-        val clothesBinding: ViewDataBinding,
-        val onClickHandlerInterface: OnClickHandlerInterface
+        val clothesBinding: ViewDataBinding
     ) : RecyclerView.ViewHolder(clothesBinding.root) {
 
-        fun onBind(clothesModel: ClothesModel, position: Int) {
+        fun onBind(clothesModel: ClothesModel,
+                   onItemClickHandler: (clothesModel: ClothesModel) -> Unit,) {
+
             val binding = clothesBinding as ItemClothesBinding
             binding.setVariable(BR.itemclothes, clothesModel)
+
+            /*Click işlemi için interface yerine higher-order kullanabilirsin.
             binding.setVariable(BR.clickHandler, onClickHandlerInterface)
-            binding.setVariable(BR.position, position)
+            binding.setVariable(BR.position, position)*/
+
+            binding.clothesButton.setOnClickListener { onItemClickHandler(clothesModel) }
+
         }
 
     }
