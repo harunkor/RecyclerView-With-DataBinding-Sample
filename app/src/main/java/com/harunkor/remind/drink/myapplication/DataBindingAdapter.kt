@@ -3,7 +3,7 @@ package com.harunkor.remind.drink.myapplication
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 
-object DataBindingAdapter {
+class DataBindingAdapter {
 
     //Binding adapterları extension olarak yazman daha kolay olurdu.
     /*companion object {
@@ -14,8 +14,6 @@ object DataBindingAdapter {
     }*/
 
     //Use  Extension Function
-    @JvmStatic
-    @BindingAdapter("imageResource")
     fun ImageView.setImageResourse(resource: Int) {
         setImageResource(resource)
     }
