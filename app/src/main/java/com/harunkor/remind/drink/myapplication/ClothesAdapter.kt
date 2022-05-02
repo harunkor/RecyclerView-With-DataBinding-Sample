@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.harunkor.remind.drink.myapplication.databinding.ItemClothesBinding
 
 class ClothesAdapter(
-    val list: List<ClothesModel>,
-    val onItemClickHandler: (clothesModel:ClothesModel) -> Unit
+    private val list: List<ClothesModel>,
+    private val onItemClickHandler: (clothesModel:ClothesModel) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val clothesBinding = DataBindingUtil.inflate<ViewDataBinding>(
